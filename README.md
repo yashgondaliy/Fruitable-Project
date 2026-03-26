@@ -160,16 +160,16 @@ http://127.0.0.1:8000/
 ## 📸 Screenshots 
 
 ### 🏠 Home Page
-![Home Page](screenshots/home.png)
+<img src="myapp/static/img/home_page.png" width="600">
 
 ### 🛍️ Shop Page
-![Cart](screenshots/cart.png)
+<img src="myapp/static/img/shop_page.png" width="600">
 
 ### 🛒 Cart Page
-![Cart](screenshots/cart.png)
+<img src="myapp/static/img/cart_page.png" width="600">
 
 ### 💳 Checkout Page
-![Cart](screenshots/cart.png)
+<img src="myapp/static/img/checkout_page.png" width="600">
 
 ---
 
