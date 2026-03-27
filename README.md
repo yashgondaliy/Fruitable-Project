@@ -3,6 +3,11 @@
 A fully functional **E-commerce Web Application** built using **Django**.
 This project allows users to browse products, add items to cart, manage wishlist, and place orders.
 
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Django](https://img.shields.io/badge/Django-4.x-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Active-success)
+
 ---
 
 ## 🚀 Features
