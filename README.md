@@ -1,229 +1,202 @@
-# 🛒 Fruitable - Django E-commerce Project
+# 🛒 Fruitable - DevOps Enabled E-commerce Application
 
-A fully functional **E-commerce Web Application** built using **Django**.
-This project allows users to browse products, add items to cart, manage wishlist, and place orders.
-
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Django](https://img.shields.io/badge/Django-4.x-green)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-![Status](https://img.shields.io/badge/Status-Active-success)
+🚀 A full-stack Django-based e-commerce application built and deployed using modern **DevOps practices** including **Docker multi-stage builds**, **Docker Compose**, and **AWS cloud services**.
 
 ---
 
-## 🚀 Features
+## 🌐 Architecture Overview
 
-### 👤 User Features
+```id="arch001"
+User → Browser → EC2 (Docker Compose)
+                     │
+                     ├── S3 (Static & Media Files)
+                     └── RDS (Database)
+```
 
-* User Registration & Login system
-* Secure session-based authentication
-* Logout functionality
+---
 
-### 🛍️ Product Features
+## 🚀 Clone & Run Project
 
-* Product listing (Fruits & Vegetables)
-* Product detail view
-* Category-based filtering
-* Price display
+```bash id="clone001"
+# Clone the repository
+git clone https://github.com/yashgondaliy/Fruitable-Project.git
 
-### 🛒 Cart System
+# Move into project directory
+cd Fruitable-Project
 
-* Add to cart
-* Increase / Decrease quantity
-* Remove items from cart
-* Total price calculation
+# Run using Docker Compose
+docker compose up -d
+```
 
-### ❤️ Wishlist
+👉 Open in browser: http://localhost:8000
 
-* Add to wishlist
-* Remove from wishlist
+---
 
-### 📦 Orders
+## ✨ Features
 
-* Place order
-* View order history
-* Delete orders
-
-### 🎟️ Coupon System
-
-* Apply coupon codes
-* Discount calculation
-* Expiry handling
-
-### 💳 Checkout
-
-* Billing details form
-* Address management
-
-### 📞 Contact
-
-* Contact form for user queries
+* 🔐 User Authentication (Login / Register)
+* 🛍️ Product Listing & Shop System
+* 🛒 Add to Cart & Checkout
+* 📦 Order Management
+* 📱 Responsive UI
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology      | Description           |
-| --------------- | --------------------- |
-| Python          | Backend language      |
-| Django          | Web framework         |
-| HTML            | Structure             |
-| CSS / Bootstrap | Styling               |
-| JavaScript      | Frontend interactions |
-| SQLite          | Database              |
+### 👨‍💻 Application
+
+* Backend: Django
+* Frontend: HTML, CSS, JavaScript
+
+### ⚙️ DevOps & Cloud
+
+* Docker 🐳 (Multi-Stage Build)
+* Docker Compose (Container Orchestration)
+* AWS EC2 ☁️ (Deployment)
+* AWS S3 (Static & Media Storage)
+* AWS RDS (Database)
+* AWS IAM (Access Control)
+* Linux (Server Management)
 
 ---
 
-## 📁 Project Structure
+## ⚙️ DevOps Implementation
 
-```
-myproject/
-│
-├── myapp/
-│   ├── migrations/
-│   ├── static/
-│   ├── templates/
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│
-├── myproject/
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   ├── wsgi.py
-│
-├── media/
-├── db.sqlite3
-├── manage.py
-├── README.md
-```
+* Built optimized images using **Docker multi-stage builds**
+* Orchestrated services using **Docker Compose**
+* Deployed containers on **AWS EC2**
+* Configured **S3** for static and media file storage
+* Integrated **RDS** with Django backend
+* Implemented **IAM roles** for secure access
+* Managed Linux server, networking, and debugging
 
 ---
 
-## ⚙️ Installation Guide
+## 🐳 Docker Setup
 
-### 🔹 1. Clone Repository
-
-```
-git clone https://github.com/yashgondaliya/Fruitable-Project.git
-cd Fruitable-Project
+```bash id="docker001"
+docker build -t fruitable-app .
+docker run -d -p 8000:8000 fruitable-app
 ```
 
 ---
 
-### 🔹 2. Create Virtual Environment
+## 🧩 Docker Compose Setup
 
-```
-python -m venv venv
-venv\Scripts\activate     # Windows
-```
-
----
-
-### 🔹 3. Install Dependencies
-
-```
-pip install django
+```bash id="compose001"
+docker compose up -d
+docker compose down
+docker compose logs -f
 ```
 
 ---
 
-### 🔹 4. Apply Migrations
+## ☁️ AWS Deployment Steps
 
-```
-python manage.py migrate
-```
-
----
-
-### 🔹 5. Run Server
-
-```
-python manage.py runserver
-```
+1. Launch EC2 instance
+2. Install Docker & Docker Compose
+3. Configure IAM role
+4. Create S3 bucket for static/media
+5. Setup RDS database
+6. Configure environment variables
+7. Run project using Docker Compose
 
 ---
 
-### 🔹 6. Open in Browser
+## 📸 Screenshots
 
-```
-http://127.0.0.1:8000/
-```
+### 🏠 Homepage
 
----
-
-## 🔑 Key Functionalities
-
-* Dynamic product loading
-* Session-based user management
-* Cart stored per user
-* Order tracking system
-* Coupon validation logic
-
----
-
-## 📸 Screenshots 
-
-### 🏠 Home Page
 <img src="myapp/static/img/home_page.png" width="600">
 
 ### 🛍️ Shop Page
+
 <img src="myapp/static/img/shop_page.png" width="600">
 
 ### 🛒 Cart Page
+
 <img src="myapp/static/img/cart_page.png" width="600">
 
-### 💳 Checkout Page
-<img src="myapp/static/img/checkout_page.png" width="600">
+### 🐳 Docker Running
+
+<img src="myapp/static/img/docker.png" width="600">
+
+---
+
+## 📂 Project Structure
+
+```id="structure001"
+Fruitable-Project/
+│── myproject/              # Django project settings
+│── myapp/                  # Main application
+│── media/                  # Uploaded files
+│── static/                 # Static files
+
+│── Dockerfile              # Standard Docker build
+│── Docker-multistage-file  # Multi-stage optimized Dockerfile
+│── docker-compose.yml      # Container orchestration
+
+│── requirements.txt
+│── manage.py
+
+│── .dockerignore
+│── .gitignore
+
+│── auto_push.sh            # Automation script
+│── README.md
+│── screenshots/            # Project images
+```
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file:
+
+```env id="env001"
+DEBUG=False
+SECRET_KEY=your_secret_key
+
+DB_NAME=your_db
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_HOST=your_rds_endpoint
+
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+AWS_STORAGE_BUCKET_NAME=your_bucket
+```
 
 ---
 
 ## 🧠 Learning Outcomes
 
-* Django MVC (Model-View-Template)
-* Database relationships
-* Session handling
-* CRUD operations
-* Frontend + Backend integration
+* Docker multi-stage optimization
+* Docker Compose orchestration
+* AWS deployment (EC2, S3, RDS, IAM)
+* Linux server management
+* Networking & debugging in production
 
 ---
 
-## 📌 Future Improvements
+## 🚀 Future Improvements
 
-* 🔥 AJAX Add to Cart (no page reload)
-* 💳 Payment Gateway Integration (Razorpay/Stripe)
-* 📊 Admin Dashboard
-* 📱 Responsive UI improvements
-* 🔐 Django Authentication System upgrade
-
----
-
-## ⚠️ Notes
-
-* `db.sqlite3` should not be uploaded in production
-* Use `.gitignore` to exclude unnecessary files
+* CI/CD pipeline (GitHub Actions)
+* Kubernetes deployment ☸️
+* Load balancing & auto scaling
+* Nginx + HTTPS
 
 ---
 
-## 🧑‍💻 Author
+## 🔗 Repository
 
-**Yash Gondaliya**
-
----
-
-## ⭐ Support
-
-If you like this project:
-
-👉 Give it a ⭐ on GitHub
-👉 Share with your friends
+👉 https://github.com/yashgondaliy/Fruitable-Project
 
 ---
 
-## 📬 Contact
+## 🙌 About Me
 
-For queries or suggestions, feel free to connect.
+I am currently learning **DevOps Engineering** and building real-world cloud projects.
 
----
-
-**Thank You ❤️**
+⭐ If you like this project, consider giving it a star!
