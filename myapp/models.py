@@ -21,7 +21,7 @@ class Categories(models.Model):
 class Product(models.Model):
     cate_id=models.ForeignKey(Categories,on_delete=models.CASCADE,blank=True,null=True)
     name=models.CharField(max_length=255,blank=True,null=True)
-    image=models.ImageField(upload_to="media",blank=True,null=True)
+    image=models.ImageField(upload_to="products/",blank=True,null=True)
     dec=models.TextField()
     price=models.IntegerField()
 
