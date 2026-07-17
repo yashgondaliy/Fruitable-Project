@@ -1,25 +1,24 @@
-#base image (OS)
 FROM python:3.12-slim-bookworm
 
-# Environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Set work directory
 WORKDIR /app
-
-#copy file
 
 COPY requirements.txt .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt 
+# Install system packages
+RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev \
+    gcc \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy project
+# Install Python packages
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
-# Run server
 EXPOSE 8000
 
-# Run server
 CMD sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
